@@ -165,7 +165,7 @@
         <a href="#section-explore-insights">Explore More Insights</a>
     </nav>
 
-    
+
     <button class="accordion" id="section-introduction">Section 1: Introduction</button>
     <div class="panel">
         <p class="paragraph">This report provides an overview of the latest trends in technology and their impact on
@@ -178,23 +178,24 @@
         </ul>
     </div>
 
-    
-<button class="accordion" id="section-data-analysis">Section 2: Data Analysis</button>
-<div class="panel">
-    <p class="paragraph">The data analysis section focuses on key metrics and trends identified through
-        comprehensive data mining. It presents a detailed analysis of market dynamics, consumer behavior, and the
-        competitive landscape.</p>
-    <ol>
-        <li>Analyze market trends and dynamics</li>
-        <li>Evaluate consumer behavior patterns</li>
-        <li>Interpret data to make informed business decisions</li>
-    </ol>
-    
-    <canvas id="dataChart" width="400" height="200" ></canvas>
-</div>
+
+    <button class="accordion" id="section-data-analysis">Section 2: Data Analysis</button>
+    <div class="panel">
+        <p class="paragraph">The data analysis section focuses on key metrics and trends identified through
+            comprehensive data mining. It presents a detailed analysis of market dynamics, consumer behavior, and the
+            competitive landscape.</p>
+        <ol>
+            <li>Analyze market trends and dynamics</li>
+            <li>Evaluate consumer behavior patterns</li>
+            <li>Interpret data to make informed business decisions</li>
+        </ol>
+        <div style="width: 100%; height: 500px;">
+            <canvas id="dataChart"></canvas>
+        </div>
+    </div>
 
 
-    
+
     <table id="section-key-metrics">
         <tr>
             <th>Category</th>
@@ -225,19 +226,19 @@
             <td>$700,000</td>
         </tr>
     </table>
-    
 
-  
+
+
     <div class="sub-section">
         <img class="img1"
             src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room_74952-1410.jpg?size=400&ext=jpg&ga=GA1.1.1546980028.1703030400&semt=ais"
             alt="Market Overview" id="section-market-overview-1">
-        
+
         <img class="img2" src="https://terradatum.com/wp-content/uploads/2021/04/MDmockup.png" alt="Market Overview"
             id="section-market-overview-2">
     </div>
 
-    
+
     <button class="cta-button" id="section-download" onclick="downloadPageData()">Download Full Report</button>
 
     <div class="sidebar" id="section-explore-insights">
@@ -255,7 +256,7 @@
     <div class="sub-section">
         <img class="img1" src="https://www.marketsandmarkets.com/Images/insight-engines-market.jpg"
             alt="Market Overview" id="section-market-overview-1">
-      
+
         <img class="img2"
             src="https://media.licdn.com/dms/image/D4E12AQG3lcTSuRA1yg/article-cover_image-shrink_600_2000/0/1695180309542?e=2147483647&v=beta&t=o-OYX8TCw8geOqvUs-xFqZ8RDTqnu5AplYunStuCrL0"
             alt="Market Overview" id="section-market-overview-2">
@@ -265,51 +266,51 @@
         &copy;2023 Report Insights || All Rights Reserved
     </footer>
 
-    
-<script>
-    
-    var acc = document.getElementsByClassName("accordion");
-    var i;
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-                generateDummyChart(); 
-            }
-        });
-    }
+    <script>
 
-    function generateDummyChart() {
-        var data = {
-            labels: ["Category A", "Category B", "Category C"],
-            datasets: [{
-                label: "Report",
-                backgroundColor: "#3498db",
-                data: [30, 50, 20],
-            }]
-        };
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-        var ctx = document.getElementById("dataChart").getContext("2d");
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                    generateDummyChart();
+                }
+            });
+        }
 
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        function generateDummyChart() {
+            var data = {
+                labels: ["Category A", "Category B", "Category C"],
+                datasets: [{
+                    label: "Report",
+                    backgroundColor: "#3498db",
+                    data: [30, 50, 20],
+                }]
+            };
+
+            var ctx = document.getElementById("dataChart").getContext("2d");
+
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    function downloadPageData() {
+        function downloadPageData() {
             var pageContent = document.documentElement.outerHTML;
 
             var options = {
@@ -322,7 +323,7 @@
 
             html2pdf(pageContent, options);
         }
-</script>
+    </script>
 </body>
 
 </html>

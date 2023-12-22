@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <title>Report Insights</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            margin-bottom: 10px;
+            text-align: center;
+
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .accordion {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            padding: 16px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel {
+            padding: 16px;
+            display: none;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            position: static;
+            top: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .paragraph {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .sub-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img1 {
+            width: 48%;
+        }
+
+        .img2 {
+            width: 48%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Report Insights</h1>
+    </header>
+
+    <nav>
+        <a href="#section-introduction">Introduction</a>
+        <a href="#section-key-metrics">Key Metrics</a>
+        <a href="#section-explore-insights">Explore More Insights</a>
+    </nav>
+
+    <!-- Section 1: Introduction -->
+    <button class="accordion" id="section-introduction">Section 1: Introduction</button>
+    <div class="panel">
+        <p class="paragraph">This report provides an overview of the latest trends in technology and their impact on
+            various industries. It delves into the key developments shaping the future of businesses in a rapidly
+            evolving digital landscape.</p>
+        <ul>
+            <li>Explore emerging technologies</li>
+            <li>Understand the implications for businesses</li>
+            <li>Examine case studies on successful technology implementations</li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Data Analysis -->
+<button class="accordion" id="section-data-analysis">Section 2: Data Analysis</button>
+<div class="panel">
+    <p class="paragraph">The data analysis section focuses on key metrics and trends identified through
+        comprehensive data mining. It presents a detailed analysis of market dynamics, consumer behavior, and the
+        competitive landscape.</p>
+    <ol>
+        <li>Analyze market trends and dynamics</li>
+        <li>Evaluate consumer behavior patterns</li>
+        <li>Interpret data to make informed business decisions</li>
+    </ol>
+    <!-- Add canvas for the chart -->
+    <canvas id="dataChart" width="400" height="200" ></canvas>
+</div>
+
+
+    <!-- Table: Key Metrics -->
+    <table id="section-key-metrics">
+        <tr>
+            <th>Category</th>
+            <th>Metrics</th>
+        </tr>
+        <tr>
+            <td>Revenue</td>
+            <td>$2.5 million</td>
+        </tr>
+        <tr>
+            <td>Market Share</td>
+            <td>15%</td>
+        </tr>
+        <tr>
+            <td>Customer Satisfaction</td>
+            <td>90%</td>
+        </tr>
+        <tr>
+            <td>Operating Expenses</td>
+            <td>$1.8 million</td>
+        </tr>
+        <tr>
+            <td>Employee Satisfaction</td>
+            <td>85%</td>
+        </tr>
+        <tr>
+            <td>Net Profit</td>
+            <td>$700,000</td>
+        </tr>
+    </table>
+    
+
+    <!-- Image: Market Overview -->
+    <div class="sub-section">
+        <img class="img1"
+            src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room_74952-1410.jpg?size=400&ext=jpg&ga=GA1.1.1546980028.1703030400&semt=ais"
+            alt="Market Overview" id="section-market-overview-1">
+        <!-- Image: Market Overview -->
+        <img class="img2" src="https://terradatum.com/wp-content/uploads/2021/04/MDmockup.png" alt="Market Overview"
+            id="section-market-overview-2">
+    </div>
+
+    <!-- Sticky Call-to-Action Button -->
+    <button class="cta-button" id="section-download" onclick="downloadPageData()">Download Full Report</button>
+
+    <!-- Sticky Sidebar -->
+    <div class="sidebar" id="section-explore-insights">
+        <p class="paragraph">Explore more insights:</p>
+        <ul>
+            <li>Strategic recommendations for businesses</li>
+            <li>Interactive data visualizations</li>
+            <li>Comparison with industry benchmarks</li>
+            <li>Future projections and emerging technologies</li>
+            <li>Analysis of global market trends</li>
+            <li>Impact of technological advancements on customer behavior</li>
+        </ul>
+    </div>
+
+    <div class="sub-section">
+        <img class="img1" src="https://www.marketsandmarkets.com/Images/insight-engines-market.jpg"
+            alt="Market Overview" id="section-market-overview-1">
+        <!-- Image: Market Overview -->
+        <img class="img2"
+            src="https://media.licdn.com/dms/image/D4E12AQG3lcTSuRA1yg/article-cover_image-shrink_600_2000/0/1695180309542?e=2147483647&v=beta&t=o-OYX8TCw8geOqvUs-xFqZ8RDTqnu5AplYunStuCrL0"
+            alt="Market Overview" id="section-market-overview-2">
+    </div>
+
+    <footer>
+        &copy;2023 Report Insights || All Rights Reserved
+    </footer>
+
+    <!-- Add this script at the end of your body section -->
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+                generateDummyChart(); // Call the function to generate the chart when the panel is displayed
+            }
+        });
+    }
+
+    function generateDummyChart() {
+        // Dummy data for the chart
+        var data = {
+            labels: ["Category A", "Category B", "Category C"],
+            datasets: [{
+                label: "Report",
+                backgroundColor: "#3498db",
+                data: [30, 50, 20],
+            }]
+        };
+
+        var ctx = document.getElementById("dataChart").getContext("2d");
+
+        // Create a bar chart
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function downloadPageData() {
+            // Get the HTML content of the entire page
+            var pageContent = document.documentElement.outerHTML;
+
+            // Options for html2pdf
+            var options = {
+                margin: 5,
+                filename: 'report.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Use html2pdf to generate PDF
+            html2pdf(pageContent, options);
+        }
+</script>
+</body>
+
+</html>

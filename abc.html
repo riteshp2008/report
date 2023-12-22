@@ -165,7 +165,7 @@
         <a href="#section-explore-insights">Explore More Insights</a>
     </nav>
 
-    <!-- Section 1: Introduction -->
+    
     <button class="accordion" id="section-introduction">Section 1: Introduction</button>
     <div class="panel">
         <p class="paragraph">This report provides an overview of the latest trends in technology and their impact on
@@ -178,7 +178,7 @@
         </ul>
     </div>
 
-    <!-- Section 2: Data Analysis -->
+    
 <button class="accordion" id="section-data-analysis">Section 2: Data Analysis</button>
 <div class="panel">
     <p class="paragraph">The data analysis section focuses on key metrics and trends identified through
@@ -189,12 +189,12 @@
         <li>Evaluate consumer behavior patterns</li>
         <li>Interpret data to make informed business decisions</li>
     </ol>
-    <!-- Add canvas for the chart -->
+    
     <canvas id="dataChart" width="400" height="200" ></canvas>
 </div>
 
 
-    <!-- Table: Key Metrics -->
+    
     <table id="section-key-metrics">
         <tr>
             <th>Category</th>
@@ -227,20 +227,19 @@
     </table>
     
 
-    <!-- Image: Market Overview -->
+  
     <div class="sub-section">
         <img class="img1"
             src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room_74952-1410.jpg?size=400&ext=jpg&ga=GA1.1.1546980028.1703030400&semt=ais"
             alt="Market Overview" id="section-market-overview-1">
-        <!-- Image: Market Overview -->
+        
         <img class="img2" src="https://terradatum.com/wp-content/uploads/2021/04/MDmockup.png" alt="Market Overview"
             id="section-market-overview-2">
     </div>
 
-    <!-- Sticky Call-to-Action Button -->
+    
     <button class="cta-button" id="section-download" onclick="downloadPageData()">Download Full Report</button>
 
-    <!-- Sticky Sidebar -->
     <div class="sidebar" id="section-explore-insights">
         <p class="paragraph">Explore more insights:</p>
         <ul>
@@ -256,7 +255,7 @@
     <div class="sub-section">
         <img class="img1" src="https://www.marketsandmarkets.com/Images/insight-engines-market.jpg"
             alt="Market Overview" id="section-market-overview-1">
-        <!-- Image: Market Overview -->
+      
         <img class="img2"
             src="https://media.licdn.com/dms/image/D4E12AQG3lcTSuRA1yg/article-cover_image-shrink_600_2000/0/1695180309542?e=2147483647&v=beta&t=o-OYX8TCw8geOqvUs-xFqZ8RDTqnu5AplYunStuCrL0"
             alt="Market Overview" id="section-market-overview-2">
@@ -266,8 +265,9 @@
         &copy;2023 Report Insights || All Rights Reserved
     </footer>
 
-    <!-- Add this script at the end of your body section -->
+    
 <script>
+    
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -279,13 +279,12 @@
                 panel.style.display = "none";
             } else {
                 panel.style.display = "block";
-                generateDummyChart(); // Call the function to generate the chart when the panel is displayed
+                generateDummyChart(); 
             }
         });
     }
 
     function generateDummyChart() {
-        // Dummy data for the chart
         var data = {
             labels: ["Category A", "Category B", "Category C"],
             datasets: [{
@@ -297,7 +296,6 @@
 
         var ctx = document.getElementById("dataChart").getContext("2d");
 
-        // Create a bar chart
         var myBarChart = new Chart(ctx, {
             type: 'bar',
             data: data,
@@ -312,10 +310,8 @@
     }
 
     function downloadPageData() {
-            // Get the HTML content of the entire page
             var pageContent = document.documentElement.outerHTML;
 
-            // Options for html2pdf
             var options = {
                 margin: 5,
                 filename: 'report.pdf',
@@ -324,7 +320,6 @@
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            // Use html2pdf to generate PDF
             html2pdf(pageContent, options);
         }
 </script>
